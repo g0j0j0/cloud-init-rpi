@@ -1,0 +1,2 @@
+sudo netplan try /etc/netplan/50-cloud-init.yaml
+ou sudo netplan apply /etc/netplan/50-cloud-init.yaml pour appliquer directement les changements

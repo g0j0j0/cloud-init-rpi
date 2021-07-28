@@ -1,0 +1,31 @@
+#cloud-config
+
+ssh_pwauth: true
+
+users:
+  - name: j4nus
+    primary_group: j4nus
+    groups: j4nus
+    lock_passwd: false
+    passwd: copy and paste here the hashed password given with command 'mkpasswd --method=SHA-512 --rounds=4096'
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1lZEnQrKtFZC9IyVj0WLZwU8YHA2VXc+wM7KrPW5TpL/BPYZik2evTr6ghm41DFai9IuJFysUkZ0SheKyT62Itai2fej5kMytixrGLUHQ8T9Ca2qx7fU1rnDKZMeBwI1CjmF7A32znuupp9/QNAiwOMI5IeiEGSy+eedQXeNSoLC+SZFZBbI5H1dJ78hYk0dCuXVRvZxYovgl39hk+FlFvn5eLVJkdVuM00xVmRSCuEexBIODig1fXhgUdc1mDyFOx0xtRP5euacREtJ5JhXL5YXAKPxVVHyE2ABdQ516J2WFa8np4SVbOPSyWK9ZkoCwrbDaastz6KGibaJsHhCVHNUC/t7h8nj1+1if6aCC7Ah0NP6sNUzUmri6QKFcjpm0llnilBfar1cPg3NLZq4Y8fIvWoEQn0TC07b6kmB4g2Bmn6ZK62YyYP7JQCTRoKLCe5lLZ64dblSxryfH/Cpdcqo6bxrVX470y9dSRdK+6KF106yJJ29ohRWiid8Q/CBeakVs7fVI1lmgDuCg5wTjVEQ5bAZVkWmpxK4qsfVjD+fxZvGCbHH07vfZm/BxvCIGLxpj9DcSh4jxxUgBvJgRjEAX7uxsJ0Wug4PUrQ7l1bI1rwYQTVdY7q0d7/NmaT5RBtO1DbWiwX7WXFgfM7/sHywzZFN+qBwxHqMUeAH6Kw== gr3y0shi@workstation
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+
+write_files:
+  - path: /etc/default/keyboard
+    content: |
+      # KEYBOARD configuration file
+      
+      # Consult the keyboard(5) manual page.
+
+      XKBMODEL="pc105"
+      XKBLAYOUT="fr"
+      XKBVARIANT=""
+      XKBOPTIONS=""
+
+      BACKSPACE="guess"
+    permissions: '0644'
+    owner: root:root
+
