@@ -1,6 +1,8 @@
 #cloud-config
 
-ssh_pwauth: true
+# basic configuration here
+
+ssh_pwauth: false
 
 users:
   - name: j4nus
@@ -28,4 +30,28 @@ write_files:
       BACKSPACE="guess"
     permissions: '0644'
     owner: root:root
+  - path: /etc/ssh/sshd_config
+    content: |
+      Port 6662
+      UsePrivilegeSeparation yes
+      PermitRootLogin no
+      PubkeyAuthentication yes
+      AuthorizedKeysFile .ssh/authorized_keys
+      PasswordAuthentication no
+      ChallengeResponseAuthentication no
+      UsePAM yes
+      SyslogFacility AUTH
+      StrictModes yes
+      PrintMotd no
+      PrintLastLog yes
+      TCPKeepAlive yes
+      AcceptEnv LANG LC_*
+      AllowUsers j4nus
+
+# custom
+packages:
+ - tcpdump
+ - socat
+ - git
+ - curl
 
