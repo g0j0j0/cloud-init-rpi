@@ -2,7 +2,7 @@
 
 # basic configuration here
 
-ssh_pwauth: false
+ssh_pwauth: true
 
 users:
   - name: j4nus
